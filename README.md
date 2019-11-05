@@ -1,45 +1,66 @@
-# datastax-example-template
-A short few sentences describing what is the purpose of the example and what the user will learn
+# Introducing DSE Graph Frames
+This repository serves as an accompaniment to the Introducing DSE Graph Frames which discusses the basic functionality available in DSE Graph Frames. 
 
-e.g.
-This application shows how to use configure your NodeJs application to connect to DDAC/Cassandra/DSE or an Apollo database at runtime.
-
-Contributors: A listing of contributors to this repository linked to their github profile
+Contributors: Artem Aliev originally copied from [here](https://github.com/datastax/graph-examples/tree/master/dse-graph-frame)
 
 ## Objectives
-A list of the top objectives that are being demonstrated by this sample
 
-e.g.
-* To demonstrate how to specify at runtime between a standard (DSE/DDAC/C*) client configuration and an Apollo configuration for the same application.
+* To demonstrate the basic usage of DSE Graph Frames as discussed in the accompanying blog post
   
 ## Project Layout
-A list of key files within this repo and a short 1-2 sentence description of why they are important to the project
 
-e.g.
-* app.js - The main application file which contains all the logic to switch between the configurations
+* [friends-graph.groovy](friends-graph.groovy) - The schema and data that needs to be added to the graph for the following examples
+* [Spark-shell-notes](Spark-shell-notes.scala) - A file that contains commands to copy and paste into Spark Shell
+* [com.datastax.bdp.graphframes.example](/src/main/scala/com/datastax/bdp/graphframe/example) - The directory that contains the two Scala files needed for the Streaming example
 
 ## How this Sample Works
-A description of how this sample works and how it demonstrates the objectives outlined above
+A detailed description of how this code works is available at the accompanying blog post [Introducing DSE Graph Frames](https://www.datastax.com/blog/2017/05/introducing-dse-graph-frames).
 
 ## Setup and Running
 
 ### Prerequisites
-The prerequisites required for this application to run
+The prerequisites required for this application are:
 
-e.g.
-* NodeJs version 8
-* A DSE 6.7 Cluster
-* Schema added to the cluster
+* Scala 2.11
+* A DSE Cluster with Graph and Analytics enabled
 
 ### Running
-The steps and configuration needed to run and build this application
+To begin working with this sample you first need to create a graph and add some data so that we have something to work against.  
+The easiest way to accomplish this is to run the [friends-graph.groovy](friends-graph.groovy) script from Gremlin Console.
+In order to run this script you can run the following command from one of the nodes in the cluster:
 
-e.g.
-To run this application use the following command:
+`dse gremlin-console -e friends-graph.groovy`
 
-`node app.js`
+By running this script the following will happen:
 
-This will produce the following output:
+* A graph with the name of `test` will be created
+* A schema will be created for the `test` graph
+* Three vertices and four edges will be added to the graph
 
-`Connected to cluster with 3 host(s) ["XX.XX.XX.136:9042","XX.XX.XX.137:9042","XX.XX.XX.138:9042"]`
+Once this script has completed we now have a populated graph to use for the remaining queries.
+
+#### Spark Shell
+For the majority of the blog post you will need to be running Spark Shell to copy and paste the commands.  To
+launch Spark Shell use the following command from one of the nodes in the cluster:
+
+`dse spark`
+
+To paste multi-line statements into Spark Shell use the command below:
+
+`scala> :paste`
+
+This will allow you to copy and paste multi lines into the shell.  To exit this mode and execute the commands you use Ctrl-D.
+
+#### Streaming Example
+One of the examples discussed in the blog post is on how to use Spark Streaming with DseGraphFrames.  To try this we need
+to build the code under the `/src` directory using the following command:
+
+`sbt package`
+
+Once this has successfully built we submit it to Spark using the command from one of the nodes in the cluster:
+
+`dse spark-submit target/scala-2.11/dse-graph-frame\_2.11-0.1.jar`
+
+
+
 
