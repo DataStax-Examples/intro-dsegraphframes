@@ -1,28 +1,26 @@
-# Introducing DSE Graph Frames
-This repository serves as an accompaniment to the Introducing DSE Graph Frames which discusses the basic functionality available in DSE Graph Frames. 
+# Introduction to DataStax Enterprise Graph Frames
+This example accompanies the [Introducing DSE Graph Frames blog post](https://www.datastax.com/blog/2017/05/introducing-dse-graph-frames) which walks you through the basic functionality available in DSE Graph Frames. DSE Graph Frames bring the batch and analytic power of Spark to DataStax Graphs.
 
 Contributors: Artem Aliev originally copied from [here](https://github.com/datastax/graph-examples/tree/master/dse-graph-frame)
 
 ## Objectives
 
-* To demonstrate the basic usage of DSE Graph Frames as discussed in the accompanying blog post
+* Demonstrate the basic usage of DSE Graph Frames as discussed in the accompanying blog post above
   
 ## Project Layout
 
 * [friends-graph.groovy](friends-graph.groovy) - The schema and data that needs to be added to the graph for the following examples
-* [Spark-shell-notes](Spark-shell-notes.scala) - A file that contains commands to copy and paste into Spark Shell
+* [Spark-shell-notes](Spark-shell-notes.scala) - A file that contains commands to copy and paste into Spark shell
 * [com.datastax.bdp.graphframes.example](/src/main/scala/com/datastax/bdp/graphframe/example) - The directory that contains the two Scala files needed for the Streaming example
 
-## How this Sample Works
-A detailed description of how this code works is available at the accompanying blog post [Introducing DSE Graph Frames](https://www.datastax.com/blog/2017/05/introducing-dse-graph-frames).
+## How this Works
+See the [Introducing DSE Graph Frames blog post](https://www.datastax.com/blog/2017/05/introducing-dse-graph-frames) for a detailed explanation of how this example works.
 
 ## Setup and Running
 
 ### Prerequisites
-The prerequisites required for this application are:
-
-* Scala 2.11
-* A DSE Cluster with Graph and Analytics enabled
+* Scala 2.11 ( [download](https://www.scala-lang.org/download/) )
+* A DSE Cluster with Graph and Analytics enabled ( docker is a nice option for install - [see docs](https://docs.datastax.com/en/docker/doc/docker/docker67/dockerDSE.html) )
 
 ### Running
 To begin working with this sample you first need to create a graph and add some data so that we have something to work against.  
