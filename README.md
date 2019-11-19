@@ -1,7 +1,7 @@
 # Introduction to DataStax Enterprise Graph Frames
 This example accompanies the [Introducing DSE Graph Frames blog post](https://www.datastax.com/blog/2017/05/introducing-dse-graph-frames) which walks you through the basic functionality available in DSE Graph Frames. DSE Graph Frames bring the batch and analytic power of Spark to DataStax Graphs.
 
-Contributors: Artem Aliev originally copied from [here](https://github.com/datastax/graph-examples/tree/master/dse-graph-frame)
+Contributor(s): Artem Aliev - derived from [here](https://github.com/datastax/graph-examples/tree/master/dse-graph-frame)
 
 ## Objectives
 
